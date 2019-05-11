@@ -1,0 +1,17 @@
+
+body {
+  margin: 0px;
+  border: 0px;
+  height: 100vh;
+  background-color: #ff4c68;
+  background-image: url(./pat.svg);
+  background-position: bottom;
+  background-size: contain;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
+
+*{
+  box-sizing: border-box;
+}

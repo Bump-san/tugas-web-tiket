@@ -1,0 +1,45 @@
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  flex: 25%;
+}
+
+.col-50 {
+  flex: 50%;
+}
+
+.col-75 {
+  flex: 75%;
+}
+
+.cols-100{
+  flex: 100%;
+}
+
+.col-25,
+.col-50,
+.col-75,
+.cols-100 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  margin-top: 5px;
+  padding: 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
