@@ -37,39 +37,39 @@
                             <input type="text" required id="email" name="email" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>" placeholder="john@example.com">
 
                             <div class="row">
-                                <div class="col-50">
+                              <?php
 
+                              $dbhost = "localhost";
+                              $dbuser = "root";
+                              $dbpass = "";
+                              $db = "web_perjalanan";
+                              $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+
+                              $q = "select * from kota";
+
+                              for ($i=0; $i < 2; $i++) {
+                                echo '<div class="col-50">
                                     <div class="categories">
-                                        <div class="select">
-                                            <label for="kotaAsal"> Kota asal</label>
-                                            <select name="kotaAsal" id="categories">
-                                                <option value="Jakarta" selected="selected">Jakarta</option>
-                                                <option value="Bandung">Bandung</option>
-                                                <option value="Kalimantan">Kalimantan</option>
-                                                <option value="Sumatera">Sumatera</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- aduh mau jalan jalan -->
-
-                                <div class="col-50">
-                                    <div class="categories">
-                                        <div class="select">
-                                            <label for="kotaTujuan"> Kota tujuan</label>
-                                            <select name="kotaTujuan" id="categories">
-                                                <option value="Jakarta">Jakarta</option>
-                                                <option value="Bandung" selected="selected">Bandung</option>
-                                                <option value="Kalimantan">Kalimantan</option>
-                                                <option value="Sumatera">Sumatera</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
+                                        <div class="select">';
+                                        if ($i==0) {
+                                          echo '<label for="kotaAsal"> Kota asal</label>';
+                                          echo '<select name="kotaAsal" id="categories">';
+                                        } else {
+                                          echo '<label for="kotaTujuan"> Kota Tujuan</label>';
+                                          echo '<select name="kotaTujuan" id="categories">';
+                                        }
+                                        $ex = mysqli_query($conn, $q);
+                                        while ($r = mysqli_fetch_array($ex)) {
+                                          echo '<option value="'.$r['nama_kota'].'">'.$r['nama_kota'].'</option>';
+                                        }
+                                            echo "</select>
+                                                 </div>
+                                               </div>
+                                              </div>";
+                              }
+                              ?>
                             </div>
-
-                            <div class="row">
+                              <div class="row">
                                 <div class="col-50">
                                     <label for="state">Jumlah penumpang</label>
                                     <div class="categories">
@@ -90,32 +90,9 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-
-                        <!-- <div class="col-50">
-            <h3>Payment</h3>
-
-            <label for="cname">Name on Card</label>
-            <input type="text" required id="cname" name="cardname" placeholder="John More Doe">
-            <label for="ccnum">Credit card number</label>
-            <input type="text" required id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" required id="expmonth" name="expmonth" placeholder="September">
-            <div class="row">
-              <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
-              </div>
-              <div class="col-50">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
-              </div>
-            </div>
-          </div> -->
-
-                    </div>
+                          </div>
+                          </div>
                     <label>
                         <input type="checkbox" checked="checked" name="sameadr"> kirim bukti transaksi ke Email terkait
                     </label>
