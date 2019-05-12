@@ -140,10 +140,10 @@
       </div>
 
       <div class="col-50">
-        <p>Sebenernya karena ada tugas aja sih</p>
-        <blockquote>
+        <!-- <p>Sebenernya karena ada tugas aja sih</p> -->
+        <blockquote><p class="quotation">
           DEMI TU...
-          GAS
+          GAASSSS!!</p>
           <footer> — JUKI</footer>
         </blockquote>
       </div>

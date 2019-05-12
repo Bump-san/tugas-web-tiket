@@ -10,10 +10,13 @@
 
 <body>
 
-    <div class="navbar">
-        <a href="index.php">Home</a>
-        <a href="about.php">About</a>
-    </div>
+  <div class="navbar">
+    <a href="index.php">Home</a>
+    <a  class="active" href="proses_pemesanan.php">Pesan tiket</a>
+      <div class="navbar-right">
+        <a href="daftar_pembelian.php">daftar pembelian</a>
+      </div>
+  </div>
 
     <div class="judul container col-75">
 
