@@ -105,9 +105,7 @@ function panggilIsiForm()
 
 
           if (isset($_POST["namadepan"]) && !empty($_POST["namadepan"]) && isset($_POST["email"]) && !empty($_POST["email"])){
-            echo '
-            <form action="sukses.php
-            " method="POST">
+            echo '<form action="sukses.php" method="POST">
             <input type="submit" name="submit" value="Proses" class="btn-sukses">
             </form>';
           } else {

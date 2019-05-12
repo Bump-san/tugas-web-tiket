@@ -30,21 +30,25 @@
 
                     <div class="row">
                         <div class="col-50">
-                            <h3>Data Pemesanan</h3>
+                            <!-- <h3>Data Pemesanan</h3> -->
                             <label for="fname"> Nama lengkap</label>
-                            <input type="text" required id="nama-depan" name="namadepan" value="<?php echo isset($_POST["namadepan"]) ? $_POST["namadepan"] : ''; ?>" placeholder="John M. Doe">
-                            <label for="email"> Email</label>
-                            <input type="text" required id="email" name="email" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>" placeholder="john@example.com">
+                            <input type="text" required id="nama-depan" name="namadepan" value="<?php echo isset($_POST["namadepan"]) ? $_POST["namadepan"] : ''; ?>" placeholder="whatsittoya">
+                            <div class="row">
+                              <div class="col-50">
+                                <label for="email"> Email</label>
+                                <input type="email" required id="email" name="email" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>" placeholder="walach@email.com">
+                              </div>
+                              <div class="col-50">
+                                <label for="tanggal"> Tanggal berangkat</label>
+                                <input type="date" name="tanggal" value="<?php echo isset($_POST["tanggal"]) ? $_POST["tanggal"] : ''; ?>">
+                              </div>
+
+                            </div>
 
                             <div class="row">
                               <?php
 
-                              $dbhost = "localhost";
-                              $dbuser = "root";
-                              $dbpass = "";
-                              $db = "web_perjalanan";
-                              $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
-
+                              include './script/sql_connection.php';
                               $q = "select * from kota";
 
                               for ($i=0; $i < 2; $i++) {
@@ -70,6 +74,7 @@
                               ?>
                             </div>
                               <div class="row">
+
                                 <div class="col-50">
                                     <label for="state">Jumlah penumpang</label>
                                     <div class="categories">
@@ -80,7 +85,7 @@
                                 </div>
 
                                 <div class="col-50">
-                                    <label for="zip">Kelas Penerbangan</label>
+                                    <label for="kelas">Kelas Penerbangan</label>
                                     <div class="categories">
                                         <div class="select">
                                             <select name="kelas" id="categories">
@@ -90,7 +95,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+
+                              </div>
+
                           </div>
                           </div>
                     <label>

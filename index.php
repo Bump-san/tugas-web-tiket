@@ -47,11 +47,18 @@
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
+  <img src="gambar\banner-post-blog-jp.png" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
   <img src="gambar\FLIGHTCC-Oct_Feature-Image_BCA.jpg" style="width:100%">
 </div>
 
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
 
 </div>
 <br>
@@ -59,12 +66,6 @@
 <!-- slideshow selesai -->
 
     <div class="container">
-
-      <?php
-        $conn = OpenCon();
-        echo "Connected Successfully";
-        CloseCon($conn);
-      ?>
 
     </div>
 
