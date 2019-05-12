@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['submit']))
+if (isset($_POST['hitung']))
 {
    panggilIsiForm();
 }
@@ -7,10 +7,11 @@ if (isset($_POST['submit']))
 
 function panggilIsiForm()
 {
-  echo '
-  <div class="col-25">
-      <div class="container">
-        <h4>Data Anda</h4>';
+  if (isset($_POST["namadepan"]) && !empty($_POST["namadepan"]) && isset($_POST["email"]) && !empty($_POST["email"])){
+    echo '<form action="#" method="POST">
+          <div class="col-25">
+            <div class="container">
+              <h4>Data Anda</h4>';
 
         // set variable
         $nama = $_POST['namadepan'];
@@ -19,6 +20,7 @@ function panggilIsiForm()
         $kotaTujuan = $_POST['kotaTujuan'];
         $jumlahPenumpang = $_POST['jumlahPenumpang'];
         $kelas = $_POST['kelas'];
+        $tanggal_berangkat = $_POST['tanggal'];
 
         //sedikit trik buat data fiktif karena males ngetik awkoawkokaowko
         if ($kotaAsal == "Jakarta") {
@@ -83,9 +85,10 @@ function panggilIsiForm()
             $lakhir = $lKotaAsal - $lKotaTujuan ;
             $hargaTiket = 400000+($lakhir*200000);
           }
+          $total_biaya = number_format(($hargaTiket*$jumlahPenumpang));
 
           echo '<p>Harga tiket Ekonomi : <span class="value"> Rp '.number_format($hargaTiket).'</span></p>';
-          echo '<p>Total Harga :<span class="value"> Rp '.number_format(($hargaTiket*$jumlahPenumpang)).'</span></p>';
+          echo '<p>Total Harga :<span class="value"> Rp '.$total_biaya.'</span></p>';
         }
         else {
 
@@ -99,18 +102,42 @@ function panggilIsiForm()
             $hargaTiket = 800000+($lakhir*300000);
           }
 
+          $total_biaya = number_format(($hargaTiket*$jumlahPenumpang));
+
           echo '<p>Harga tiket VIP : <span class="value"> Rp '.number_format($hargaTiket).'</span></p>';
-          echo '<p>Total Harga : <span class="value"> Rp '.number_format(($hargaTiket*$jumlahPenumpang)).'</span></p>';
+          echo '<p>Total Harga : <span class="value"> Rp '.$total_biaya.'</span></p>';
         }
 
+          echo '<input type="submit" name="submitPesanan" id="submitPesanan" value="Proses" class="btn-sukses">
+          </form>';
 
-          if (isset($_POST["namadepan"]) && !empty($_POST["namadepan"]) && isset($_POST["email"]) && !empty($_POST["email"])){
-            echo '<form action="sukses.php" method="POST">
-            <input type="submit" name="submit" value="Proses" class="btn-sukses">
-            </form>';
+
           } else {
-          echo '<button type="button" class="btn-error" disabled>Data Belum lengkap Boss</button>';
+        echo '<button type="button" class="btn-error" disabled>Data Belum lengkap Boss</button>';
+        }
+
+          include './script/sql_connection.php';
+          if($conn === false){
+            die("ERROR: Could not connect. " . mysqli_connect_error());
           }
+
+          // Attempt insert query execution
+          $sql = "INSERT INTO history_pembelian (nama, email, tanggal_berangkat, kota_asal, kota_tujuan, jumlah_penumpang, kelas, total_biaya, harga_tiket)
+          VALUES ('".$nama."','".$email."','".$tanggal_berangkat."','".$kotaAsal."','".$kotaTujuan."','".$jumlahPenumpang."','".$kelas."','".$total_biaya."','".$hargaTiket."')";
+          if(mysqli_query($conn, $sql)){
+            echo "Records inserted successfully.";
+          } else{
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+          }
+
+          // Close connection
+          mysqli_close($conn);
+
+
+        
+
+
+
 
         }
 ?>

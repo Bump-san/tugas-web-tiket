@@ -9,5 +9,16 @@
   </head>
   <body>
     <h1>Transaksi sukses</h1>
+    <?php
+    $nama = $_POST['$nama'];
+    $email = $_POST['email'];
+    $kotaAsal = $_POST['kotaAsal'];
+    $kotaTujuan = $_POST['kotaTujuan'];
+    $jumlahPenumpang = $_POST['jumlahPenumpang'];
+    $kelas = $_POST['kelas'];
+
+    echo "nama : ".$nama;
+
+    ?>
   </body>
 </html>

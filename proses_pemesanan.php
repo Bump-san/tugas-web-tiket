@@ -40,7 +40,7 @@
                               </div>
                               <div class="col-50">
                                 <label for="tanggal"> Tanggal berangkat</label>
-                                <input type="date" name="tanggal" value="<?php echo isset($_POST["tanggal"]) ? $_POST["tanggal"] : ''; ?>">
+                                <input type="date" required name="tanggal" id="tanggal" value="<?php echo isset($_POST["tanggal"]) ? $_POST["tanggal"] : ''; ?>">
                               </div>
 
                             </div>
@@ -103,16 +103,16 @@
                     <label>
                         <input type="checkbox" checked="checked" name="sameadr"> kirim bukti transaksi ke Email terkait
                     </label>
-                    <input type="submit" name="submit" value="Hitung Total" class="btn">
+                    <input type="submit" name="hitung" value="Hitung Total" class="btn">
                 </form>
             </div>
-        </div>
 
+          </div>
         <!--  Untuk PHP-->
         <?php
         include './script/script_order.php';
         ?>
-
+</div>
 </body>
 
 </html>
