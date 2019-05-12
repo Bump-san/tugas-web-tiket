@@ -29,10 +29,8 @@
     <div class="navbar">
       <a class="active" href="index.php">Home</a>
       <a href="proses_pemesanan.php">Pesan tiket</a>
-      <a href="about.php">About</a>
         <div class="navbar-right">
-          <a href="#search">Search</a>
-          <a href="#about">About</a>
+          <a href="daftar_pembelian.php">daftar pembelian</a>
         </div>
     </div>
 

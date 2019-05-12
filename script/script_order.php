@@ -85,9 +85,10 @@ function panggilIsiForm()
             $lakhir = $lKotaAsal - $lKotaTujuan ;
             $hargaTiket = 400000+($lakhir*200000);
           }
-          $total_biaya = number_format(($hargaTiket*$jumlahPenumpang));
+          $total_biaya = number_format($hargaTiket*$jumlahPenumpang);
+          $hargaTiket = number_format($hargaTiket);
 
-          echo '<p>Harga tiket Ekonomi : <span class="value"> Rp '.number_format($hargaTiket).'</span></p>';
+          echo '<p>Harga tiket Ekonomi : <span class="value"> Rp '.$hargaTiket.'</span></p>';
           echo '<p>Total Harga :<span class="value"> Rp '.$total_biaya.'</span></p>';
         }
         else {
@@ -102,9 +103,10 @@ function panggilIsiForm()
             $hargaTiket = 800000+($lakhir*300000);
           }
 
-          $total_biaya = number_format(($hargaTiket*$jumlahPenumpang));
+          $total_biaya = number_format($hargaTiket*$jumlahPenumpang);
+          $hargaTiket = number_format($hargaTiket);
 
-          echo '<p>Harga tiket VIP : <span class="value"> Rp '.number_format($hargaTiket).'</span></p>';
+          echo '<p>Harga tiket VIP : <span class="value"> Rp '.$hargaTiket.'</span></p>';
           echo '<p>Total Harga : <span class="value"> Rp '.$total_biaya.'</span></p>';
         }
 
