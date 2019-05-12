@@ -108,8 +108,8 @@ function panggilIsiForm()
           echo '<p>Total Harga : <span class="value"> Rp '.$total_biaya.'</span></p>';
         }
 
-          echo '<input type="submit" name="submitPesanan" id="submitPesanan" value="Proses" class="btn-sukses">
-          </form>';
+          // echo '<input type="submit" name="submitPesanan" id="submitPesanan" value="Proses" class="btn-sukses">';
+          echo '</form>';
 
 
           } else {
@@ -125,7 +125,7 @@ function panggilIsiForm()
           $sql = "INSERT INTO history_pembelian (nama, email, tanggal_berangkat, kota_asal, kota_tujuan, jumlah_penumpang, kelas, total_biaya, harga_tiket)
           VALUES ('".$nama."','".$email."','".$tanggal_berangkat."','".$kotaAsal."','".$kotaTujuan."','".$jumlahPenumpang."','".$kelas."','".$total_biaya."','".$hargaTiket."')";
           if(mysqli_query($conn, $sql)){
-            echo "Records inserted successfully.";
+            echo "Pesanan Diproses.";
           } else{
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
           }
@@ -134,7 +134,7 @@ function panggilIsiForm()
           mysqli_close($conn);
 
 
-        
+
 
 
 
